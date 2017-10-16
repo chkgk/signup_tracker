@@ -63,11 +63,11 @@ class HRootScrapper():
 		if not fileContent:
 			return False
 
-		(username, password, url) = fileContent.split(";")
-		if not username or not password or not url:
+		(username, password, url, log) = fileContent.split(";")
+		if not username or not password or not url or not log:
 			return False
 
-		return { "username": username, "password": password, "baseURL": url }
+		return { "username": username, "password": password, "baseURL": url, "logfile": log }
 
 
 	def login(self):
@@ -173,7 +173,7 @@ class statusMonitor:
 		self.D = DatabaseHandler()
 		self.time_step = 3600 * 3
 
-		self.log_file = "hroot.log"
+		self.log_file = self.s.credentials['logfile']
 
 	def log_and_print(self, message):
 		timestamp = datetime.now().isoformat()
