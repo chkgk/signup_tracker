@@ -1,0 +1,8 @@
+.DS_Store
+*.pyc
+venv/
+credentials.info
+AlarmClock.py
+*._*
+countdata.db
+*.log
